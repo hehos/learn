@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>mycomponent</title>
+  </head>
+  <body>
+    <div id="app">
+      <grid-box :cols="4">
+        <grid-cell v-for="(item, idx) in serverGridCells"
+                   :key="idx"
+                   :icon="item.icon"
+                   :title="item.title"
+                   :itemIdx="idx+1"
+                   to="/detail">
+        </grid-cell>
+      </grid-box>
+
+      <swiper class="headline-items" :options="headlineOption">
+
+        <swiper-slide class="headline-item"
+                      v-for="i in Math.ceil(headlineItems.length/2)" :key="i">
+          <a
+            v-for="item in headlineItems.slice((i-1)*2, i*2)" :key="item.id">
+            {{ item.title }}
+          </a>
+        </swiper-slide>
+
+      </swiper>
+
+    </div>
+    <!-- built files will be auto injected -->
+
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  </body>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        serverGridCells: [
+          {title: '旺铺', icon: 'icon-shop-o'},
+          {title: 'VIP会员', icon: 'icon-shop-o'},
+          {title: '身份认证', icon: 'icon-shop-o'},
+          {title: '商学院', icon: 'icon-shop-o'},
+          {title: '微分销', icon: 'icon-shop-o'},
+          {title: 'VR', icon: 'icon-shop-o'},
+          {title: '微直播', icon: 'icon-shop-o'},
+          {title: '邀请码', icon: 'icon-shop-o'}
+        ],
+        headlineItems: [
+          { id: 1, title: '1九正招商宝：会员人数突破千万大关' },
+          { id: 1, title: '2九正科技成为全球500强公司' },
+          { id: 1, title: '3九正招商宝：会员人数突破千万大关' },
+          { id: 1, title: '4九正科技成为全球500强公司' },
+          { id: 1, title: '5九正招商宝：会员人数突破千万大关' },
+          { id: 1, title: '6九正科技成为全球500强公司' }
+        ],
+        // 幻灯片
+        headlineOption: {
+          autoplay: 4000,
+          direction: 'vertical',
+          autoplayDisableOnInteraction: false,
+          loop: true
+        }
+      }
+    });
+
+  </script>
+</html>

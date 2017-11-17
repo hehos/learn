@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <style>
+        li {
+            margin-bottom: 15px;
+        }
+        h1, h2, h3, h4, h5, h6 { margin: 0; }
+    </style>
+</head>
+<body>
+
+<h2>基础用法</h2>
+
+
+<div id="testForm1">
+    <ol>
+        <li>
+            <h3>text</h3>
+            <span>Message is: {{ message }}</span>
+            <br>
+            <input type="text" v-model="message" placeholder="edit me" value="test">
+
+        </li>
+        <li>
+            <h3> checkbox(单个）</h3>
+            <label>
+                <input type="checkbox" v-model="checked">{{ checked }}
+            </label>
+        </li>
+        <li>
+            <h3>checkbox（多个）</h3>
+            <label><input type="checkbox" value="Jack" v-model="checkedNames">Jack</label>
+            <label><input type="checkbox" value="John" v-model="checkedNames">John</label>
+            <label><input type="checkbox" value="Mike" v-model="checkedNames">Mike</label> <br>
+            <span>Checked names: {{ checkedNames | json }}</span>
+        </li>
+        <li>
+            <h3>radio（单个）</h3>
+            <label><input type="radio" value="One" checked v-model="radio">One</label>
+            <span>Picked: {{ radio }}</span>
+        </li>
+        <li>
+            <h3>radio（多个）</h3>
+            <label><input type="radio" value="One" v-model="picked">One</label>
+            <label><input type="radio" value="Two" v-model="picked">Two</label><br/>
+            <span>Picked: {{ picked }}</span>
+        </li>
+        <li>
+            <h3>select（单选）</h3>
+            <select v-model="selected1">
+                <option value="a">A</option>
+                <option value="b">B</option>
+                <option value="c">C</option>
+            </select>
+            <span>selected1: {{ selected1 }}</span>
+        </li>
+        <li>
+            <h3>select（多选）</h3>
+            <select v-model="selected2" multiple>
+                <option>A</option>
+                <option selected>B</option>
+                <option selected value="c">C</option>
+            </select>
+            <span>selected2: {{ selected2 | json }}</span>
+        </li>
+
+        <li>
+            <h3>select（动态选项，用 v-for 渲染）</h3>
+            <select v-model="selected3">
+                <option v-for="option in options" class="{{ option.value }}"
+                        v-bind:value="option.value">
+                    {{ option.text }}
+                </option>
+            </select>
+            <span>selected3: {{ selected3 }}</span>
+        </li>
+
+    </ol>
+</div>
+
+
+<h2>绑定value</h2>
+<div id="testForm2">
+
+<ol>
+    <li>
+        <label><input
+                type="checkbox"
+                v-model="toggle"
+                v-bind:true-value="zhang.name"
+                v-bind:false-value="li.name">{{ toggle }}</label>
+        <!--
+            // 当选中时
+            vm.toggle === vm.zhang.name
+            // 当没有选中时
+            vm.toggle === vm.li.name
+        -->
+
+    </li>
+    <li>
+        <input type="radio" v-model="pick" v-bind:value="pickDyn">{{ pick }}
+        <!--
+           // 当选中时
+           vm.pick === vm.a
+        -->
+    </li>
+    <li>
+        <select v-model="selected">
+            <!-- 对象字面量 -->
+            <option v-bind:value="{ number: 123 }">123</option>{{ selected }}
+            <!--
+               // 当选中时
+               typeof vm.selected // -> 'object'
+               vm.selected.number // -> 123
+           -->
+        </select>
+    </li>
+</ol>
+
+</div>
+
+<h2>参数特性</h2>
+
+<div id="testForm3">
+    <ol>
+        <li>
+            <input v-model="age" type="number">
+        </li>
+        <li>
+            <!-- 延迟更新 -->
+            <input v-model="msg" debounce="500">msg is: {{ msg }}
+        </li>
+    </ol>
+</div>
+
+
+
+<script src="../lib/vue.js"></script>
+<script src="../js/testForm.js"></script>
+
+<br/><br/><br/>
+</body>
+</html>

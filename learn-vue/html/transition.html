@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <link rel="stylesheet" href="../css/animate.css"/>
+    <script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+    <style>
+        /* 必需 */
+        .expand-transition {
+            transition: all 2s ease;
+            height: 30px;
+            padding: 10px;
+            background-color: #eee;
+            overflow: hidden;
+        }
+
+        /* .expand-enter 定义进入的开始状态 */
+        /* .expand-leave 定义离开的结束状态 */
+        .expand-enter, .expand-leave {
+            height: 0;
+            padding: 0 10px;
+            opacity: 0;
+        }
+
+        .testTypeTransition {
+            transition: all 1s ease;
+            height: 50px;
+            background-color: #eeeeee;
+        }
+        .testTypeTransition:hover {
+            height: 100px;
+        }
+
+
+        /* CSS 动画 */
+        .bounce3-transition {
+            display: inline-block; /* 否则 scale 动画不起作用 */
+        }
+        .bounce3-enter {
+            animation: bounce-in .5s;
+        }
+        .bounce3-leave {
+            animation: bounce-out .5s;
+        }
+        @keyframes bounce-in {
+            0% {
+                transform: scale(0);
+            }
+            50% {
+                transform: scale(1.5);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        @keyframes bounce-out {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.5);
+            }
+            100% {
+                transform: scale(0);
+            }
+        }
+
+
+        /* 渐近过渡 */
+        .staggered-transition {
+            transition: all .5s ease;
+            overflow: hidden;
+            margin: 0;
+            height: 20px;
+        }
+        .staggered-enter, .staggered-leave {
+            opacity: 0;
+            height: 0;
+        }
+
+        .stagger-transition {
+            transition: all .5s ease;
+            overflow: hidden;
+            margin: 0;
+            height: 20px;
+        }
+        .stagger-enter, .stagger-leave {
+            opacity: 0;
+            height: 0;
+        }
+
+    </style>
+
+
+</head>
+<body>
+
+<h2>CSS过滤</h2>
+<ol id="transition1">
+    <li>
+        <h3>CSS 过渡</h3>
+        <div v-if="show" class="" transition="expand">hello</div>
+
+        <button type="button" onclick="vmToggle()">toggle</button>
+    </li>
+
+    <li>
+        <h3>自定义过渡类名</h3>
+        <div v-if="ok" class="animated" transition="bounce">Watch me bounce</div>
+
+        <button type="button" onclick="vmToggle2()">toggle</button>
+    </li>
+    <li>
+        <h3>显式声明 CSS 过渡类型</h3>
+        <div v-if="ok2" class="animated testTypeTransition"
+             transition="bounce2">test transition type </div>
+        <button type="button" onclick="vmToggle3()">toggle</button>
+    </li>
+    <li>
+        <h3>CSS 动画</h3>
+        <div style="height: 40px;">
+            <span v-show="show2" transition="bounce3">Look at me!</span>
+        </div>
+        <button type="button" onclick="vmToggle4()">toggle</button>
+    </li>
+    <li>
+        <h3>JavaScript 过渡</h3>
+        <p v-if="show3" transition="fade">JavaScript 过渡</p>
+        <button type="button" onclick="vmToggle5()">toggle</button>
+    </li>
+    <li>
+        <h3>渐近过渡</h3>
+        <div v-if="show4" v-for="item in list"
+             transition="stagger" stagger="100">{{ item.text }}</div>
+        <button type="button" onclick="vmToggle6()">toggle</button>
+    </li>
+</ol>
+
+<div id="demo">
+    <input v-model="query">
+    <ul>
+        <li v-for="item in list | filterBy query"
+            transition="staggered"
+            stagger="100">
+            {{item.msg}}
+        </li>
+    </ul>
+</div>
+
+
+<script src="../lib/vue.js"></script>
+<script src="../js/transition.js"></script>
+<script>
+    function vmToggle() {
+        vm.show? vm.show = false: vm.show = true;
+    }
+    function vmToggle2() {
+        vm.ok? vm.ok = false: vm.ok = true;
+    }
+    function vmToggle3() {
+        vm.ok2? vm.ok2 = false: vm.ok2 = true;
+    }
+    function vmToggle4() {
+        vm.show2? vm.show2 = false: vm.show2 = true;
+    }
+    function vmToggle5() {
+        vm.show3? vm.show3 = false: vm.show3 = true;
+    }
+    function vmToggle6() {
+        vm.show4? vm.show4 = false: vm.show4 = true;
+    }
+</script>
+</body>
+</html>

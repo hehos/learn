@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<ol>
+    <li>
+        <div id="example">
+            <a href="www.baidu.com" v-on:click="greet">Greet</a>
+        </div>
+    </li>
+    <li>
+        <div id="example-2">
+            <button v-on:click="say('hi')">Say Hi</button>
+            <button v-on:click="say('what')">Say What</button>
+        </div>
+    </li>
+    <li>
+        <div id="example-3">
+            <form action="a.action">
+                <button v-on:click="say('hello!', $event)">Submit</button>
+                <!-- say2: function (msg, event) {}  参数event不能自动获取事件对象 -->
+                <button v-on:click="say2('hello!')">Submit2</button>
+            </form>
+        </div>
+    </li>
+    <li>
+        <div id="eventEmbellish">
+            <!-- 阻止单击事件冒泡 -->
+
+            <a href="http://www.baidu.com" >
+                <span v-on:click="test">阻止1</span>
+            </a>
+
+            <div onclick="alert(88);"><span v-on:click.stop>阻止2</span></div>
+
+            <!-- 提交事件不再重载页面 -->
+            <form action="a.do" v-on:submit.prevent>
+                <button type="submit">提交1</button>
+            </form>
+
+            <!-- 修饰符可以串联 -->
+            <div onclick="alert('父元素的点击事件触发')">
+                <a href="http://www.baidu.com" v-on:click.stop.prevent="stopPrevent">阻止冒泡和默认事件</a>
+            </div>
+
+            <!-- 只有修饰符 -->
+            <form action="a.do" v-on:submit.prevent>
+                <button>提交3</button>
+            </form>
+
+
+            <div v-on:click.capture="capture" v-on:click="clickEvent">v-on:click.capture捕获时出发</div>
+
+            <div v-on:click.self="self"><span>子元素</span>父元素区域</div>
+        </div>
+    </li>
+    <li>
+        <div id="keyEmbellish">
+            <input type="button" @keyup.enter="enter" value="enter" />
+            <input type="button" @keyup.tab="tab" value="tab" />
+            <input type="button" @keyup.delete="delete" value="delete" />
+            <input type="button" @keyup.esc="esc" value="esc" />
+            <input type="button" @keyup.space="space" value="space" />
+            <input type="button" @keyup.up="up" value="up" />
+            <input type="button" @keyup.down="down" value="down" />
+            <input type="button" @keyup.left="left" value="left" />
+            <input type="button" @keyup.right="right" value="right" />
+            <!--  支持单字母按键别名。 -->
+            <input type="input" @keyup.a="a" value="a" />
+            <!-- 以自定义按键别名 -->
+            <input type="input" @keyup.customKey1="customKey1" value="customKey1" />
+        </div>
+    </li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+<script src="../lib/vue.js"></script>
+<script src="../js/methodAndEvent.js"></script>
+</body>
+</html>

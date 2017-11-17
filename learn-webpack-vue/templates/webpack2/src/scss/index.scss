@@ -1,0 +1,34 @@
+@import "variables";
+@import "mixins";
+
+
+#index-page {
+
+
+  .mui-table-view {
+    &:before,
+    &:after {
+      background-color: transparent;
+    }
+  }
+  .playing-box {
+    .index-title { border-bottom: none; }
+    i { vertical-align: middle; }
+    .index-title {
+      color: $orange-dark;
+    }
+    .mint-cell-title {
+      @include text-truncate();
+    }
+  }
+
+  .media-base-items {
+    @include clearfix();
+  }
+  .media-base {
+    float: left;
+    width: 50%;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+  }
+}

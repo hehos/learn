@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<ul>
+    <li>
+        <!-- 'abc' => 'cba' -->
+        <div id="demo1" v-text="message | reverse"></div>
+    </li>
+    <li>
+        <!-- 'hello' => 'before hello after' -->
+        <div id="demo2" v-text="message | wrap 'before' 'after'"></div>
+    </li>
+    <li>
+        <div id="two-way-filter-demo" class="demo">
+            <input type="text" v-model="money | currencyDisplay">
+            <p>Model value: {{money}}</p>
+        </div>
+    </li>
+    <li>
+        <div id="demo3">
+            <input type="text" v-model="userInput">
+            <span>{{msg | concat userInput}}</span>
+        </div>
+    </li>
+</ul>
+
+
+
+<script src="../lib/vue.js"></script>
+<script src="../js/filter.js"></script>
+</body>
+</html>

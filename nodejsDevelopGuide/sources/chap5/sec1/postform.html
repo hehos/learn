@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <form method="post" action="http://192.168.0.188:3000/" target="_blank">
+        title：<input type="text" name="title" /><br>
+        text：<textarea name="text"></textarea>
+        <input type="submit" value="提交到nodejs服务端"/>
+    </form>
+    <hr>
+
+    <form method="post" target="_blank"
+          action="http://192.168.0.188/learn/learn-nodejs/nodejsDevelopGuide/sources/chap5/sec1/post.php">
+        title：<input type="text" name="title" /><br>
+        text：<textarea name="text"></textarea>
+        <input type="submit" value="提交到php服务端"/>
+    </form>
+    <hr>
+
+    <form method="post" action="http://192.168.0.188:3001/" target="_blank">
+        title：<input type="text" name="title" /><br>
+        text：<textarea name="text"></textarea>
+        <input type="submit" value="提交到express服务端"/>
+    </form>
+
+</body>
+</html>

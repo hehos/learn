@@ -1,0 +1,1 @@
+{"version":3,"sources":["src/example.js"],"names":[],"mappings":";;AAAA;;;;AAIA;AAAA,SAAQ,OAAO,CAAf;AAAA","file":"true","sourcesContent":["/**\r\n * Created by hehui on 2016/8/31.\r\n */\r\n\r\nitem => item + 1;"]}

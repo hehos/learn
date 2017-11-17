@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+
+<template id="test-slot-template">
+    <div>
+        <h4>This is my component!</h4>
+        <slot>
+            如果没有分发内容则显示我。
+        </slot>
+    </div>
+</template>
+<template id="test-slot-template2">
+    <div>
+        <h4>This is my component!</h4>
+    </div>
+</template>
+<template id="test-slot-template3">
+    <div>
+        <slot name="one"></slot>
+        <slot></slot>
+        <slot name="two"></slot>
+    </div>
+</template>
+<div id="test-slot">
+    <ol>
+        <li>
+            <h3>有slot标签，且宿主元素不为空</h3>
+            <child>
+                <p>This is some original content</p>
+                <p>This is some more original content</p>
+            </child>
+        </li>
+        <li>
+            <h3>有slot标签，当宿主元素为空并且没有内容供插入时显示这个回退内容。</h3>
+            <child>
+            </child>
+        </li>
+        <li>
+            <h3>无slot标签，宿主元素内容将被抛弃</h3>
+            <child2>
+                <p>This is some original content</p>
+                <p>This is some more original content</p>
+            </child2>
+        </li>
+        <li>
+            <h3>有 name 特殊特性的 Slot</h3>
+            <child3>
+                <p slot="one">One</p>
+                <p slot="two">Two</p>
+                <p>Default A</p>
+                <!-- 可以重复 -->
+                <!--<p slot="one">One2</p>-->
+                <!--<p slot="two">Two2</p>-->
+            </child3>
+        </li>
+    </ol>
+
+</div>
+
+
+
+<style>
+    .fade-transition {
+        transition: opacity .5s ease;
+    }
+    .fade-enter, .fade-leave {
+        opacity: 0;
+    }
+</style>
+<div>
+    <ol>
+        <li id="synComponent">
+            <h3>动态组件</h3>
+            <component :is="currentView"
+                       transition="fade"
+                       transition-mode="out-in">
+                <!-- 组件在 vm.currentview 变化时改变 -->
+            </component>
+            <div class="synComponentRadio">
+                <label><input type="radio" value="home" name="synComponent"/>home</label>
+                <label><input type="radio" value="posts" name="synComponent"/>posts</label>
+                <label><input type="radio" value="archive" name="synComponent"/>archive</label>
+            </div>
+        </li>
+
+    </ol>
+</div>
+
+<div id="sundry">
+    <h2>杂项</h2>
+    <template id="sundry-template1">
+        <div>
+            index:{{ index }} ;
+            name:{{ item.name }} ;
+            age:{{ item.age }}
+        </div>
+    </template>
+    <ol>
+        <li>
+            <h3>组件和 v-for</h3>
+            <sundry1
+                    v-for="item in items"
+                    :item="item"
+                    :index="$index">
+            </sundry1>
+        </li>
+    </ol>
+</div>
+
+
+<script src="../lib/vue.js"></script>
+<script src="../js/component2.js"></script>
+
+<script>
+    document.querySelectorAll('.synComponentRadio input').
+            forEach(function(el) {
+                el.onclick = function() {
+                synComponent.currentView = el.value;
+        }
+    });
+</script>
+
+</body>
+</html>

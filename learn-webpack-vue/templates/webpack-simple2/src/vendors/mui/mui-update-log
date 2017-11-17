@@ -1,0 +1,10 @@
+修改框架代码记录
+
+js:
+6130:
+    event.preventDefault(); //stop hash change  -->  // event.preventDefault(); //stop hash change
+7044:
+    }, 2000); --> }, 3000);
+
+css:
+mui-spinner 部分修改了css。

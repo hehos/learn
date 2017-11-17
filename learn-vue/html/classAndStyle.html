@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body { visibility: hidden; }
+        .class-a {
+            color: red;
+        }
+        .class-b {
+            text-decoration: underline;
+        }
+        .class-c {
+            font-style: oblique;
+        }
+    </style>
+
+    <!--<script src="https://cdn.jsdelivr.net/vue/latest/vue.js"></script>-->
+    <script src="../lib/vue.js"></script>
+</head>
+<body>
+
+<h1>
+    ###########
+    绑定 HTML Class
+</h1>
+<h2>对象语法</h2>
+<div id="demo1" class="static"
+     v-bind:class="{ 'class-a': isA, 'class-b': isB }">v-bind:class的使用 对象语法1</div>
+
+
+<div id="demo2" class="static"
+     v-bind:class="classObject">v-bind:class的使用 对象语法2</div>
+
+<div id="demo3" class="static"
+     v-bind:class="classObject">v-bind:class的使用 对象语法3</div>
+
+<h2>数组语法</h2>
+<div id="demo4" v-bind:class="[classA, classB]">v-bind:class的使用 数组语法1</div>
+
+<h2>数组中使用对象语法</h2>
+<!-- 不生效！ -->
+<div id="demo5" v-bind:class="[classA, { classB: isB, classC: isC }]">v-bind:class的使用 数组中使用对象语法</div>
+<!--<div id="demo5" v-bind:class="[classA, isC ? classC : '']">v-bind:class的使用 数组中使用对象语法</div>-->
+
+
+<!--<h1>-->
+    <!--###########-->
+    <!--绑定内联样式-->
+<!--</h1>-->
+<!--<div id="bindStyle1"-->
+     <!--v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">对象语法——CSS形式绑定</div>-->
+
+<!--<div id="bindStyle2" v-bind:style="styleObject">对象语法——CSS对象</div>-->
+
+
+<script>
+    window.onload = function() {
+        document.getElementsByTagName('body')[0].style.visibility = 'visible';
+    }
+</script>
+
+<script src="../js/classAndStyle.js"></script>
+</body>
+</html>

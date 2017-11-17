@@ -1,0 +1,74 @@
+# Ignore docs files
+_gh_pages
+_site
+
+# Ignore ruby files
+.ruby-version
+.bundle
+vendor/cache
+
+# Numerous always-ignore extensions
+*.diff
+*.err
+*.log
+*.orig
+*.rej
+*.swo
+*.swp
+*.vi
+*.zip
+*~
+
+# OS or Editor folders
+._*
+.cache
+.DS_Store
+.idea
+.project
+.settings
+.tmproj
+*.esproj
+*.sublime-project
+*.sublime-workspace
+nbproject
+Thumbs.db
+
+# Komodo
+.komodotools
+*.komodoproject
+
+# grunt-html-validation
+validation-report.json
+validation-status.json
+
+# SCSS-Lint
+scss-lint-report.xml
+
+# sass cache
+.sass-cache
+
+# Folders to ignore
+bower_components
+node_modules
+learn-es6/dev/js/7_array.js
+learn-es6/dev/js/7_array.js.map
+learn-es6/dev/js/9_object.js
+learn-es6/dev/js/9_object.js.map
+learn-es6/dev/js/proxyGetCreateDom.js
+learn-es6/dev/js/proxyGetCreateDom.js.map
+learn-es6/dev/js/proxyGetPipe.js
+learn-es6/dev/js/proxyGetPipe.js.map
+learn-html5/
+learn-nodejs/nodejsPractice/source/5/timetrack/.svn/prop-base/
+learn-nodejs/nodejsPractice/source/5/timetrack/.svn/props/
+learn-nodejs/nodejsPractice/source/5/timetrack/.svn/tmp/
+learn-nodejs/nodejsPractice/source/5/timetrack/lib/.svn/prop-base/
+learn-nodejs/nodejsPractice/source/5/timetrack/lib/.svn/props/
+learn-nodejs/nodejsPractice/source/5/timetrack/lib/.svn/tmp/
+learn-nodejs/nodejsPractice/source/8/photo_app/public/images/
+learn-nodejs/nodejsPractice/source/8/photo_app/public/javascripts/
+learn-nodejs/nodejsPractice/source/8/photo_app/public/photos/
+learn-nodejs/nodejsPractice/source/9/shoutbox/public/images/
+learn-nodejs/nodejsPractice/source/9/shoutbox/public/javascripts/
+learn-react/
+Would skip repository learn-webpack/webpack/

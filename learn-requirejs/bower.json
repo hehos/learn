@@ -1,0 +1,17 @@
+{
+  "name": "learn-requirejs",
+  "authors": [
+    "hehui <304574254@qq.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ol>
+    <li>
+        <div id="demo" v-demo:hello.a.b="msg"></div>
+    </li>
+    <li>
+        <div class="demo2" v-demo2="{ color: 'white', text: 'hello!' }"></div>
+        <!-- 多个同名className，只能生效第一个。 -->
+        <div class="demo2" v-demo2="demo2"></div>
+    </li>
+    <li>
+        <div id="demo3" v-demo3 a="hi"></div>
+    </li>
+    <li>
+        <div id="demo4" v-demo4 v-bind:a="someValue"></div>
+    </li>
+    <li>
+        <div id="demo5" v-demo5="someValue"></div>
+    </li>
+    <li>
+        <input type="text" id="demo6" v-demo6="someValue" />
+    </li>
+</ol>
+
+
+
+<script src="../lib/vue.js"></script>
+<script src="../js/customDirective.js"></script>
+</body>
+</html>

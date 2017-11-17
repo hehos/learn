@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body { visibility: hidden; }
+    </style>
+</head>
+<body>
+
+<ol>
+    <li id="demo1">
+        firstName: {{ firstName }}<br/>
+        lastName: {{ lastName }}<br/>
+        fullName:{{fullName}}
+    </li>
+    <li id="demo2">
+        firstName: {{ firstName }}<br/>
+        lastName: {{ lastName }}<br/>
+        fullName:{{fullName}}
+    </li>
+    <li id="demo3">
+        firstName: {{ firstName }}<br/>
+        lastName: {{ lastName }}<br/>
+        fullName:{{fullName}}
+    </li>
+</ol>
+
+
+<script>
+    window.onload = function() {
+        document.getElementsByTagName('body')[0].style.visibility = 'visible';
+    }
+</script>
+
+<script src="../lib/vue.js"></script>
+<script src="../js/countAttribute.js"></script>
+</body>
+</html>

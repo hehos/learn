@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul id="demoRepeat">
+    <li v-for="item in items" track-by="$index"
+        id="{{ item._uid }}" class="itme-{{ $index }}">
+        {{$index}} - {{parentMsg}} {{item.childMsg}}; _uid:{{ item._uid }}
+    </li>
+</ul>
+
+
+<dl id="demoTemplate">
+    <template v-for="item in items">
+        <dt>{{ item.title }}</dt>
+        <dd v-for="subitem in item.subItems">{{ subitem }}</dd>
+    </template>
+</dl>
+
+
+<ul id="users">
+    <li v-for="user in users">
+        {{user.name}} - <a href="">{{user.email}}</a>
+    </li>
+</ul>
+
+
+<ul id="repeat-object" class="demo">
+    <li v-for="value in object">
+        index:{{$index}}; key:{{ $key }}; value:{{ value }}
+    </li>
+    <li v-for="(key, val) in object">
+        index:{{$index}}; key:{{ key }}; value:{{ val }}
+    </li>
+</ul>
+
+
+
+<div id="for-num">
+    <span v-for="n in 10">{{ n }} </span>
+</div>
+
+<div id="testFilterBy">
+    <div v-for="user in users | filterBy 'zhang' in 'email'">
+        name:{{ user.name }}; email: {{ user.email }}
+    </div>
+</div>
+
+<script src="../lib/vue.js"></script>
+<script src="../js/test-v-for.js"></script>
+</body>
+</html>

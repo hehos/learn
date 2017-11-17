@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<div id="component">
+    <h2>使用组件</h2>
+    <ol>
+        <li>
+            <h3>注册</h3>
+            <my-component></my-component>
+        </li>
+        <li>
+            <h3>局部注册</h3>
+            <parent-component>
+            </parent-component>
+        </li>
+        <li>
+            <h3>注册语法糖</h3>
+            <my-component2></my-component2>
+        </li>
+    </ol>
+
+    <h2>Props</h2>
+    <ol>
+        <li>
+            <h3>使用 Props 传递数据</h3>
+            <child msg="hello!"></child>
+        </li>
+        <li>
+            <h3>camelCase vs. kebab-case</h3>
+            <child my-message="hello2!"></child>
+            <br/>
+            <child msg="hello!" my-message="hello2!"></child>
+        </li>
+        <li>
+            <h3>动态 Props</h3>
+            <div>
+                <input v-model="parentMsg" debounce="500">
+                <br>
+                <child v-bind:dyn-prop="parentMsg"></child>
+            </div>
+        </li>
+    </ol>
+</div>
+
+<h2>父子组件通信</h2>
+<ol>
+    <li>
+        <h3>自定义事件</h3>
+        <!-- 子组件模板 -->
+        <template id="child-template">
+            <input v-model="msg">
+            <button v-on:click="notify">Dispatch Event</button>
+        </template>
+
+        <!-- 父组件模板 -->
+        <div id="events-example">
+            <p>Messages: {{ messages | json }}</p>
+            <child2></child2>
+
+            <!-- 使用 v-on 绑定自定义事件 -->
+            <p>Messages2: {{ messages2 | json }}</p>
+            <child2 v-on:child-msg="handleIt"></child2>
+        </div>
+
+
+
+    </li>
+</ol>
+
+<script src="../lib/vue.js"></script>
+<script src="../js/component.js"></script>
+
+</body>
+</html>
