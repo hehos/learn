@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/test/example.js"],"names":["item"],"mappings":";;AAAA;;;;AAIA;AAAA,SAAQA,OAAO,CAAf;AAAA","file":"example.js","sourcesContent":["/**\r\n * Created by hehui on 2016/8/31.\r\n */\r\n\r\nitem => item + 1;"]}

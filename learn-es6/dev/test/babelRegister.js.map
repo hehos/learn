@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/test/babelRegister.js"],"names":["console","log","item"],"mappings":";;AAAA;AACA;AACA;;AAEAA,QAAQC,GAAR,CAAa;AAAA,SAAQC,OAAO,CAAf;AAAA,CAAD,CAAmB,CAAnB,CAAZ","file":"babelRegister.js","sourcesContent":["// es6语法\r\n// require(\"babel-register\");\r\n// require(\"./es6.js\");\r\n\r\nconsole.log((item => item + 3)(3));"]}

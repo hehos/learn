@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/es6/es6AndCommonJS/getCmModule.js"],"names":[],"mappings":"AAAA;AACA;AACA;AACA;AACA","file":"getCmModule.js","sourcesContent":["// var mod = require('./cmModule');\n//\n// console.log(mod.counter);  // 3\n// mod.incCounter();\n// console.log(mod.counter); // 3"]}
